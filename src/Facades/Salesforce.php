@@ -1,16 +1,16 @@
 <?php
 
-namespace Jeffersongoncalves\Salesforce\Facades;
+namespace JeffersonGoncalves\Salesforce\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @see \Jeffersongoncalves\Salesforce\Salesforce
+ * @see \JeffersonGoncalves\Salesforce\Salesforce
  */
 class Salesforce extends Facade
 {
     protected static function getFacadeAccessor(): string
     {
-        return 'laravel-salesforce';
+        return \JeffersonGoncalves\Salesforce\Salesforce::class;
     }
 }

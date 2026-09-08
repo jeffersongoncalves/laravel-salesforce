@@ -1,22 +1,29 @@
 {
     "name": "jeffersongoncalves/laravel-salesforce",
-    "description": "Salesforce REST API integration for Laravel",
+    "description": "PHP/Laravel client for the Salesforce REST API: SOQL queries, SOSL search, and sobject CRUD via OAuth2 password grant.",
     "keywords": [
+        "api-client",
+        "salesforce",
+        "composer",
         "laravel",
-        "laravel-salesforce"
+        "laravel-package",
+        "php"
     ],
     "homepage": "https://github.com/jeffersongoncalves/laravel-salesforce",
     "license": "MIT",
+    "type": "library",
     "authors": [
         {
-            "name": "Jefferson Simão Gonçalves",
-            "email": "gerson.simao.92@gmail.com"
+            "name": "Jefferson Gonçalves",
+            "email": "gerson.simao.92@gmail.com",
+            "role": "Developer"
         }
     ],
     "require": {
         "php": "^8.2",
-        "spatie/laravel-package-tools": "^1.16",
-        "illuminate/contracts": "^12.0|^13.0"
+        "illuminate/http": "^12.0|^13.0",
+        "illuminate/support": "^12.0|^13.0",
+        "spatie/laravel-package-tools": "^1.16"
     },
     "require-dev": {
         "larastan/larastan": "^3.0",
@@ -27,20 +34,19 @@
     },
     "autoload": {
         "psr-4": {
-            "Jeffersongoncalves\\Salesforce\\": "src/"
+            "JeffersonGoncalves\\Salesforce\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Jeffersongoncalves\\Salesforce\\Tests\\": "tests/"
+            "JeffersonGoncalves\\Salesforce\\Tests\\": "tests/"
         }
     },
     "scripts": {
         "post-autoload-dump": "@php ./vendor/bin/testbench package:discover --ansi",
-        "test": "vendor/bin/pest",
-        "test-coverage": "vendor/bin/pest --coverage",
+        "analyse": "vendor/bin/phpstan analyse",
         "format": "vendor/bin/pint",
-        "analyse": "vendor/bin/phpstan analyse"
+        "test": "vendor/bin/pest"
     },
     "config": {
         "sort-packages": true,
@@ -52,10 +58,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Jeffersongoncalves\\Salesforce\\SalesforceServiceProvider"
+                "JeffersonGoncalves\\Salesforce\\SalesforceServiceProvider"
             ],
             "aliases": {
-                "Salesforce": "Jeffersongoncalves\\Salesforce\\Facades\\Salesforce"
+                "Salesforce": "JeffersonGoncalves\\Salesforce\\Facades\\Salesforce"
             }
         }
     },
